@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="../css/login.css" />
+        <title>Đăng nhập</title>
+    </head>
+    <body>
+        <div class="auth">
+            <div class="card">
+                <div class="tabs">
+                    <button class="tab active" data-tab="login">
+                        Đăng nhập
+                    </button>
+                    <button class="tab register-active" data-tab="register">
+                        Đăng ký
+                    </button>
+                </div>
+                <form id="loginForm" class="panel active" novalidate>
+                    <div class="field">
+                        <label>Email hoặc Username</label>
+                        <input
+                            name="identity"
+                            autocomplete="username"
+                            required
+                        />
+                    </div>
+                    <div class="field">
+                        <label>Mật khẩu</label>
+                        <div class="pw">
+                            <input
+                                type="password"
+                                name="password"
+                                autocomplete="current-password"
+                                required
+                                minlength="6"
+                            />
+                            <button
+                                type="button"
+                                class="pw-toggle"
+                                aria-label="Hiện/ẩn mật khẩu"
+                            >
+                                👁
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="chk"
+                            ><input type="checkbox" id="remember" /> Ghi
+                            nhớ</label
+                        >
+                        <a class="link" href="#" id="forgot">Quên mật khẩu?</a>
+                    </div>
+                    <button class="btn primary" type="submit">Đăng nhập</button>
+                    <p class="error" id="loginError" hidden></p>
+                </form>
+
+                <form id="registerForm" class="panel" novalidate>
+                    <div class="grid">
+                        <div class="field">
+                            <label>Họ tên</label>
+                            <input name="full_name" required />
+                        </div>
+                        <div class="field">
+                            <label>Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                autocomplete="email"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Username</label>
+                        <input
+                            name="username"
+                            autocomplete="username"
+                            required
+                        />
+                    </div>
+                    <div class="grid">
+                        <div class="field">
+                            <label>Mật khẩu</label>
+                            <div class="pw">
+                                <input
+                                    type="password"
+                                    name="password"
+                                    autocomplete="new-password"
+                                    required
+                                    minlength="8"
+                                />
+                                <button type="button" class="pw-toggle">
+                                    👁
+                                </button>
+                            </div>
+                            <small id="strength">Độ mạnh: —</small>
+                        </div>
+                        <div class="field">
+                            <label>Nhập lại mật khẩu</label>
+                            <input
+                                type="password"
+                                name="confirm"
+                                required
+                                minlength="8"
+                            />
+                        </div>
+                    </div>
+                    <button class="btn primary" type="submit">
+                        Tạo tài khoản
+                    </button>
+                    <p class="error" id="registerError" hidden></p>
+                </form>
+                <p class="hint">
+                    Bằng việc tiếp tục, bạn đồng ý với Điều khoản & Chính sách
+                    bảo mật.
+                </p>
+            </div>
+        </div>
+        <script>
+            const tabs = document.querySelectorAll(".tab");
+            const panels = {
+                login: document.getElementById("loginForm"),
+                register: document.getElementById("registerForm"),
+            };
+
+            function show(tab) {
+                // toggle tab button
+                tabs.forEach((t) =>
+                    t.classList.toggle("active", t.dataset.tab === tab)
+                );
+                // toggle panel
+                Object.values(panels).forEach((p) =>
+                    p.classList.remove("active")
+                );
+                panels[tab].classList.add("active");
+                // đổi tiêu đề & hash (tiện mở trực tiếp)
+                document.title = tab === "login" ? "Đăng nhập" : "Đăng ký";
+                location.hash = tab;
+            }
+
+            // click handler
+            tabs.forEach((t) =>
+                t.addEventListener("click", () => show(t.dataset.tab))
+            );
+
+            // mở đúng tab theo URL hash (#login | #register)
+            const init = (location.hash || "#login").slice(1);
+            show(init);
+
+            // (optional) khi back/forward trên trình duyệt
+            window.addEventListener("hashchange", () =>
+                show((location.hash || "#login").slice(1))
+            );
+        </script>
+    </body>
+</html>
