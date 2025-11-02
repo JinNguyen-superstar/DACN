@@ -13,6 +13,7 @@ import invoiceRouter from './routers/invoiceRoutes.js';
 import prescriptionRouter from './routers/prescriptionRoutes.js';
 import userRouter from './routers/userRoutes.js';
 import ordersRouter from './routers/ordersRouter.js';
+import discountRouter from "./routers/discountRouters.js";
 
 const app = express();
 // Body parsers: JSON, urlencoded and a text fallback for requests missing Content-Type
@@ -45,6 +46,7 @@ app.use('/invoices', invoiceRouter);
 app.use('/prescriptions', prescriptionRouter);
 app.use('/users', userRouter);
 app.use('/orders', ordersRouter);
+app.use("/discounts", discountRouter);
 
 app.get('/', (req, res) => res.send('Pharmacy management server is running'));
 
