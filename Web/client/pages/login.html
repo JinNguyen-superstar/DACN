@@ -19,99 +19,139 @@
                     </button>
                 </div>
                 <form id="loginForm" class="panel active" novalidate>
-                    <div class="field">
-                        <label>Email hoặc Username</label>
-                        <input
-                            name="identity"
-                            autocomplete="username"
-                            required
-                        />
+                    <div class="form-header">
+                        <h2>Chào mừng trở lại!</h2>
+                        <p>Vui lòng đăng nhập để tiếp tục</p>
                     </div>
-                    <div class="field">
-                        <label>Mật khẩu</label>
-                        <div class="pw">
-                            <input
-                                type="password"
-                                name="password"
-                                autocomplete="current-password"
-                                required
-                                minlength="6"
-                            />
-                            <button
-                                type="button"
-                                class="pw-toggle"
-                                aria-label="Hiện/ẩn mật khẩu"
-                            >
-                                👁
-                            </button>
+                    <div class="form-body">
+                        <div class="field">
+                            <label>
+                                <span>Email hoặc Username</span>
+                                <input
+                                    name="identity"
+                                    autocomplete="username"
+                                    placeholder="Nhập email hoặc tên đăng nhập"
+                                    required
+                                />
+                            </label>
+                        </div>
+                        <div class="field">
+                            <label>
+                                <span>Mật khẩu</span>
+                                <div class="pw">
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        placeholder="Nhập mật khẩu"
+                                        autocomplete="current-password"
+                                        required
+                                        minlength="6"
+                                    />
+                                    <button
+                                        type="button"
+                                        class="pw-toggle"
+                                        aria-label="Hiện/ẩn mật khẩu"
+                                    >
+                                        👁
+                                    </button>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="options-row">
+                            <label class="chk">
+                                <input type="checkbox" id="remember" />
+                                <span>Ghi nhớ đăng nhập</span>
+                            </label>
+                            <a class="link" href="#" id="forgot">Quên mật khẩu?</a>
                         </div>
                     </div>
-                    <div class="row">
-                        <label class="chk"
-                            ><input type="checkbox" id="remember" /> Ghi
-                            nhớ</label
-                        >
-                        <a class="link" href="#" id="forgot">Quên mật khẩu?</a>
+                    <div class="form-footer">
+                        <button class="btn primary" type="submit">Đăng nhập</button>
+                        <p class="error" id="loginError" hidden></p>
                     </div>
-                    <button class="btn primary" type="submit">Đăng nhập</button>
-                    <p class="error" id="loginError" hidden></p>
                 </form>
 
                 <form id="registerForm" class="panel" novalidate>
-                    <div class="grid">
-                        <div class="field">
-                            <label>Họ tên</label>
-                            <input name="full_name" required />
-                        </div>
-                        <div class="field">
-                            <label>Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                autocomplete="email"
-                                required
-                            />
-                        </div>
+                    <div class="form-header">
+                        <h2>Tạo tài khoản mới</h2>
+                        <p>Điền thông tin để bắt đầu</p>
                     </div>
-                    <div class="field">
-                        <label>Username</label>
-                        <input
-                            name="username"
-                            autocomplete="username"
-                            required
-                        />
-                    </div>
-                    <div class="grid">
-                        <div class="field">
-                            <label>Mật khẩu</label>
-                            <div class="pw">
-                                <input
-                                    type="password"
-                                    name="password"
-                                    autocomplete="new-password"
-                                    required
-                                    minlength="8"
-                                />
-                                <button type="button" class="pw-toggle">
-                                    👁
-                                </button>
+                    <div class="form-body">
+                        <div class="grid">
+                            <div class="field">
+                                <label>
+                                    <span>Họ tên</span>
+                                    <input 
+                                        name="full_name" 
+                                        placeholder="Nhập họ tên đầy đủ"
+                                        required 
+                                    />
+                                </label>
                             </div>
-                            <small id="strength">Độ mạnh: —</small>
+                            <div class="field">
+                                <label>
+                                    <span>Email</span>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        placeholder="example@email.com"
+                                        autocomplete="email"
+                                        required
+                                    />
+                                </label>
+                            </div>
                         </div>
                         <div class="field">
-                            <label>Nhập lại mật khẩu</label>
-                            <input
-                                type="password"
-                                name="confirm"
-                                required
-                                minlength="8"
-                            />
+                            <label>
+                                <span>Tên đăng nhập</span>
+                                <input
+                                    name="username"
+                                    placeholder="Chọn tên đăng nhập"
+                                    autocomplete="username"
+                                    required
+                                />
+                            </label>
+                        </div>
+                        <div class="grid">
+                            <div class="field">
+                                <label>
+                                    <span>Mật khẩu</span>
+                                    <div class="pw">
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            placeholder="Tạo mật khẩu"
+                                            autocomplete="new-password"
+                                            required
+                                            minlength="8"
+                                        />
+                                        <button type="button" class="pw-toggle">
+                                            👁
+                                        </button>
+                                    </div>
+                                </label>
+                                <small id="strength">Độ mạnh: —</small>
+                            </div>
+                            <div class="field">
+                                <label>
+                                    <span>Xác nhận mật khẩu</span>
+                                    <input
+                                        type="password"
+                                        name="confirm"
+                                        placeholder="Nhập lại mật khẩu"
+                                        required
+                                        minlength="8"
+                                    />
+                                </label>
+                            </div>
                         </div>
                     </div>
-                    <button class="btn primary" type="submit">
-                        Tạo tài khoản
-                    </button>
-                    <p class="error" id="registerError" hidden></p>
+                    <div class="form-footer">
+                        <button class="btn primary" type="submit">
+                            Tạo tài khoản
+                        </button>
+                        <p class="error" id="registerError" hidden></p>
+                    </div>
                 </form>
                 <p class="hint">
                     Bằng việc tiếp tục, bạn đồng ý với Điều khoản & Chính sách
@@ -154,6 +194,101 @@
             window.addEventListener("hashchange", () =>
                 show((location.hash || "#login").slice(1))
             );
+
+            // --- UX helpers: show/hide password ---
+            document.querySelectorAll('.pw-toggle').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const pw = btn.closest('.pw').querySelector('input');
+                    if (!pw) return;
+                    if (pw.type === 'password') {
+                        pw.type = 'text';
+                        btn.textContent = '🙈';
+                    } else {
+                        pw.type = 'password';
+                        btn.textContent = '👁';
+                    }
+                });
+            });
+
+            // --- password strength and match for register form ---
+            const registerForm = document.getElementById('registerForm');
+            const strengthEl = document.getElementById('strength');
+            const regPwd = registerForm.querySelector('input[name="password"]');
+            const regConfirm = registerForm.querySelector('input[name="confirm"]');
+            const registerError = document.getElementById('registerError');
+
+            function calcStrength(s) {
+                let score = 0;
+                if (!s) return {score: 0, label: '—'};
+                if (s.length >= 8) score++;
+                if (/[A-Z]/.test(s)) score++;
+                if (/[0-9]/.test(s)) score++;
+                if (/[^A-Za-z0-9]/.test(s)) score++;
+                let label = 'Yếu';
+                if (score >= 4) label = 'Rất mạnh';
+                else if (score === 3) label = 'Mạnh';
+                else if (score === 2) label = 'Trung bình';
+                return {score, label};
+            }
+
+            regPwd.addEventListener('input', () => {
+                const s = calcStrength(regPwd.value);
+                strengthEl.textContent = `Độ mạnh: ${s.label}`;
+                strengthEl.style.color = s.score >= 3 ? 'var(--ok)' : (s.score === 2 ? 'orange' : 'var(--muted)');
+                // clear previous errors
+                registerError.hidden = true;
+            });
+
+            regConfirm.addEventListener('input', () => {
+                if (regConfirm.value && regPwd.value !== regConfirm.value) {
+                    registerError.textContent = 'Mật khẩu nhập lại không khớp.';
+                    registerError.hidden = false;
+                } else {
+                    registerError.hidden = true;
+                }
+            });
+
+            // --- basic form handling (client-side demo) ---
+            const loginForm = document.getElementById('loginForm');
+            const loginError = document.getElementById('loginError');
+
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                loginError.hidden = true;
+                const data = new FormData(loginForm);
+                const identity = data.get('identity')?.trim();
+                const password = data.get('password')?.trim();
+                if (!identity || !password) {
+                    loginError.textContent = 'Vui lòng nhập đầy đủ thông tin.';
+                    loginError.hidden = false;
+                    return;
+                }
+                // demo: normally you'd send fetch() to server here
+                loginError.textContent = 'Demo: form hợp lệ. Thực hiện đăng nhập...';
+                loginError.hidden = false;
+                loginError.style.color = 'var(--primary)';
+            });
+
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                registerError.hidden = true;
+                const data = new FormData(registerForm);
+                const pwd = data.get('password') || '';
+                const conf = data.get('confirm') || '';
+                if (pwd.length < 8) {
+                    registerError.textContent = 'Mật khẩu phải có ít nhất 8 ký tự.';
+                    registerError.hidden = false;
+                    return;
+                }
+                if (pwd !== conf) {
+                    registerError.textContent = 'Mật khẩu nhập lại không khớp.';
+                    registerError.hidden = false;
+                    return;
+                }
+                registerError.textContent = 'Demo: tài khoản hợp lệ. Vui lòng gửi lên server.';
+                registerError.hidden = false;
+                registerError.style.color = 'var(--primary)';
+            });
         </script>
     </body>
 </html>
