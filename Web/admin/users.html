@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - Hệ thống quản lý nhà thuốc</title>
+    <title>Quản lý người dùng - Hệ thống quản lý nhà thuốc</title>
 
     <!-- Boxicons & CSS -->
     <link
@@ -21,50 +21,50 @@
       </div>
 
       <ul class="sidebar-menu">
-        <li class="active">
-          <a href="#" id="dashboard-link">
+        <li>
+          <a href="index.html">
             <i class="bx bx-home"></i>
             <span>Bảng điều khiển</span>
           </a>
         </li>
         <li>
-          <a href="drugs.html" id="drugs-link">
+          <a href="drugs.html">
             <i class="bx bx-plus-medical"></i>
             <span>Thuốc</span>
           </a>
         </li>
         <li>
-          <a href="categories.html" id="categories-link">
+          <a href="categories.html">
             <i class="bx bx-category"></i>
             <span>Danh mục</span>
           </a>
         </li>
         <li>
-          <a href="orders.html" id="orders-link">
+          <a href="orders.html">
             <i class="bx bx-cart-alt"></i>
             <span>Đơn hàng</span>
           </a>
         </li>
-        <li>
-          <a href="users.html" id="users-link">
+        <li class="active">
+          <a href="users.html">
             <i class="bx bx-user"></i>
             <span>Người dùng</span>
           </a>
         </li>
         <li>
-          <a href="statistics.html" id="statistics-link">
+          <a href="statistics.html">
             <i class="bx bx-line-chart"></i>
             <span>Thống kê</span>
           </a>
         </li>
         <li>
-          <a href="discount.html" id="discount-link">
+          <a href="discount.html">
             <i class="bx bx-tag"></i>
             <span>Khuyễn mãi</span>
           </a>
         </li>
         <li class="logout">
-          <a href="#" id="logout-link">
+          <a href="#">
             <i class="bx bx-log-out"></i>
             <span>Đăng xuất</span>
           </a>
@@ -79,7 +79,7 @@
     <!-- ========== MAIN CONTENT ========== -->
     <main class="main-content">
       <header class="main-header">
-        <h1>Bảng điều khiển</h1>
+        <h1>Quản lý người dùng</h1>
         <div class="user-info">
           <i class="bx bx-user-circle"></i>
           <span>Admin</span>
@@ -87,23 +87,65 @@
       </header>
 
       <section class="content">
-        <div class="dashboard-summary">
-          <div class="card">
-            <h3>Tổng số thuốc</h3>
-            <p>128</p>
-          </div>
-          <div class="card">
-            <h3>Tổng đơn hàng</h3>
-            <p>245</p>
-          </div>
-          <div class="card">
-            <h3>Người dùng</h3>
-            <p>64</p>
-          </div>
-          <div class="card">
-            <h3>Doanh thu</h3>
-            <p>35.200.000₫</p>
-          </div>
+        <div class="toolbar">
+          <button class="btn-green" id="add-user-btn">
+            <i class="bx bx-plus"></i> Thêm người dùng mới
+          </button>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Tìm kiếm người dùng..."
+          />
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Mã người dùng</th>
+                <th>Họ và tên</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Vai trò</th>
+                <th>Trạng thái</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>U001</td>
+                <td>Nguyễn Văn A</td>
+                <td>vana@gmail.com</td>
+                <td>0912345678</td>
+                <td>Khách hàng</td>
+                <td>Hoạt động</td>
+                <td>
+                  <button class="btn-edit">
+                    <i class="bx bx-edit"></i>
+                  </button>
+                  <button class="btn-delete">
+                    <i class="bx bx-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>U002</td>
+                <td>Trần Thị B</td>
+                <td>thib@gmail.com</td>
+                <td>0987654321</td>
+                <td>Nhân viên</td>
+                <td>Hoạt động</td>
+                <td>
+                  <button class="btn-edit">
+                    <i class="bx bx-edit"></i>
+                  </button>
+                  <button class="btn-delete">
+                    <i class="bx bx-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
     </main>

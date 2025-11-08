@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - Hệ thống quản lý nhà thuốc</title>
+    <title>Thống kê - Hệ thống quản lý nhà thuốc</title>
 
     <!-- Boxicons & CSS -->
     <link
@@ -11,6 +11,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/admin.css" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <!-- ========== SIDEBAR ========== -->
@@ -21,50 +24,50 @@
       </div>
 
       <ul class="sidebar-menu">
-        <li class="active">
-          <a href="#" id="dashboard-link">
+        <li>
+          <a href="index.html">
             <i class="bx bx-home"></i>
             <span>Bảng điều khiển</span>
           </a>
         </li>
         <li>
-          <a href="drugs.html" id="drugs-link">
+          <a href="drugs.html">
             <i class="bx bx-plus-medical"></i>
             <span>Thuốc</span>
           </a>
         </li>
         <li>
-          <a href="categories.html" id="categories-link">
+          <a href="categories.html">
             <i class="bx bx-category"></i>
             <span>Danh mục</span>
           </a>
         </li>
         <li>
-          <a href="orders.html" id="orders-link">
+          <a href="orders.html">
             <i class="bx bx-cart-alt"></i>
             <span>Đơn hàng</span>
           </a>
         </li>
         <li>
-          <a href="users.html" id="users-link">
+          <a href="users.html">
             <i class="bx bx-user"></i>
             <span>Người dùng</span>
           </a>
         </li>
-        <li>
-          <a href="statistics.html" id="statistics-link">
+        <li class="active">
+          <a href="statistics.html">
             <i class="bx bx-line-chart"></i>
             <span>Thống kê</span>
           </a>
         </li>
         <li>
-          <a href="discount.html" id="discount-link">
+          <a href="discount.html">
             <i class="bx bx-tag"></i>
             <span>Khuyễn mãi</span>
           </a>
         </li>
         <li class="logout">
-          <a href="#" id="logout-link">
+          <a href="#">
             <i class="bx bx-log-out"></i>
             <span>Đăng xuất</span>
           </a>
@@ -79,7 +82,7 @@
     <!-- ========== MAIN CONTENT ========== -->
     <main class="main-content">
       <header class="main-header">
-        <h1>Bảng điều khiển</h1>
+        <h1>Thống kê nhà thuốc</h1>
         <div class="user-info">
           <i class="bx bx-user-circle"></i>
           <span>Admin</span>
@@ -87,22 +90,33 @@
       </header>
 
       <section class="content">
-        <div class="dashboard-summary">
+        <div class="stats-cards">
           <div class="card">
-            <h3>Tổng số thuốc</h3>
-            <p>128</p>
+            <h3>Đơn hàng hôm nay</h3>
+            <p>25</p>
           </div>
           <div class="card">
-            <h3>Tổng đơn hàng</h3>
-            <p>245</p>
+            <h3>Thuốc bán chạy</h3>
+            <p>Paracetamol</p>
           </div>
           <div class="card">
-            <h3>Người dùng</h3>
-            <p>64</p>
+            <h3>Người dùng mới</h3>
+            <p>12</p>
           </div>
           <div class="card">
             <h3>Doanh thu</h3>
-            <p>35.200.000₫</p>
+            <p>5.200.000₫</p>
+          </div>
+        </div>
+
+        <div class="charts">
+          <div class="chart-card">
+            <h3>Doanh thu theo tháng</h3>
+            <canvas id="revenueChart"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>Đơn hàng theo trạng thái</h3>
+            <canvas id="ordersChart"></canvas>
           </div>
         </div>
       </section>
@@ -117,6 +131,53 @@
       toggleSidebar.addEventListener("click", () => {
         sidebar.classList.toggle("collapsed");
         icon.classList.toggle("bx-chevron-right");
+      });
+
+      // ==== Chart.js examples ====
+      const revenueCtx = document.getElementById("revenueChart").getContext("2d");
+      const revenueChart = new Chart(revenueCtx, {
+        type: "line",
+        data: {
+          labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6"],
+          datasets: [
+            {
+              label: "Doanh thu (₫)",
+              data: [5000000, 4200000, 6000000, 5500000, 7000000, 6500000],
+              borderColor: "#248a3d",
+              backgroundColor: "rgba(36,138,61,0.2)",
+              tension: 0.3,
+              fill: true
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: true, position: "top" }
+          }
+        }
+      });
+
+      const ordersCtx = document.getElementById("ordersChart").getContext("2d");
+      const ordersChart = new Chart(ordersCtx, {
+        type: "doughnut",
+        data: {
+          labels: ["Đã thanh toán", "Chưa thanh toán", "Đang giao"],
+          datasets: [
+            {
+              label: "Số lượng đơn",
+              data: [40, 10, 5],
+              backgroundColor: ["#248a3d", "#f1c40f", "#e74c3c"],
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { position: "bottom" }
+          }
+        }
       });
     </script>
   </body>
