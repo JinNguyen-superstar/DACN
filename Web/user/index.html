@@ -1,116 +1,62 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drug-Store — Nhà thuốc trực tuyến</title>
-  <link rel="stylesheet" href="css/dashboard.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drug-Store — Nhà thuốc trực tuyến</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
 
-<body>
-  <!-- Thanh trên cùng -->
-  <header class="topbar">
-    <div class="container topbar-content">
-      <div class="logo">
-        <img src="../shared/images/logo.png" alt="logo" onerror="this.style.display='none'" />
-        <h1>Drug<span>Store</span></h1>
-      </div>
-      <div class="search-box">
-        <input type="text" placeholder="Tìm thuốc, vitamin, thực phẩm..." />
-        <button>🔍</button>
-      </div>
-      <div class="user-actions">
-        <a href="#">🛒 Giỏ hàng</a>
-        <a href="#">👤 Đăng nhập</a>
-      </div>
-    </div>
-  </header>
+  <body>
+  <!-- Import components -->
+  <div data-include="../shared/components/topbar.html"></div>
+  <div data-include="../shared/components/navbar.html"></div>
 
-  <!-- Menu danh mục -->
-  <nav class="navbar">
-    <ul class="menu">
-      <li><a href="#">Trang chủ</a></li>
-      <li><a href="#">Thuốc</a></li>
-      <li><a href="#">Thực phẩm chức năng</a></li>
-      <li><a href="#">Chăm sóc cá nhân</a></li>
-      <li><a href="#">Mẹ & Bé</a></li>
-      <li><a href="#">Khuyến mãi</a></li>
-    </ul>
-  </nav>
+    <!-- Nội dung chính -->
+    <main class="content">
+      <section class="hero">
+        <div class="hero-text">
+          <h2>Chào mừng đến với <span>DrugStore</span>!</h2>
+          <p>
+            Nơi bạn có thể mua thuốc, vitamin, thực phẩm chức năng và sản phẩm chăm sóc sức khỏe uy tín, an toàn, tiện lợi.
+          </p>
+          <button class="btn-primary">Khám phá ngay</button>
+        </div>
+        <div class="hero-image">
+          <img src="../../shared/images/hero-banner.png" alt="Sản phẩm thuốc" onerror="this.style.display='none'" />
+        </div>
+      </section>
 
-  <!-- Danh mục sản phẩm -->
-  <section class="categories container">
-    <h2>Danh mục thuốc</h2>
-    <div class="category-list">
-      <div class="cat-item">
-        <img src="images/thuoc1.jpg" alt="Thuốc không kê đơn" />
-        <p>Thuốc không kê đơn</p>
-      </div>
-      <div class="cat-item">
-        <img src="images/thuoc2.jpg" alt="Thuốc kê đơn" />
-        <p>Thuốc kê đơn</p>
-      </div>
-      <div class="cat-item">
-        <img src="images/thuoc3.jpg" alt="Vitamin" />
-        <p>Vitamin & TPCN</p>
-      </div>
-      <div class="cat-item">
-        <img src="images/thuoc4.jpg" alt="Thuốc khác" />
-        <p>Thuốc khác</p>
-      </div>
-    </div>
-  </section>
+      <section class="featured">
+        <h3>Sản phẩm nổi bật</h3>
+        <div class="product-grid">
+          <div class="product-card">
+            <img src="../../shared/images/drug1.jpg" alt="Thuốc 1" onerror="this.style.display='none'" />
+            <h4>Paracetamol 500mg</h4>
+            <p>Giảm đau, hạ sốt nhanh chóng</p>
+            <button>Thêm vào giỏ</button>
+          </div>
 
-  <!-- Danh sách sản phẩm -->
-  <section class="products container">
-    <div class="filter-bar">
-      <div class="filter">
-        <label>Khoảng giá:</label>
-        <input type="number" placeholder="Tối thiểu" /> -
-        <input type="number" placeholder="Tối đa" />
-        <button>Áp dụng</button>
-      </div>
-      <div class="sort">
-        <label>Sắp xếp theo:</label>
-        <select>
-          <option>Giá tăng dần</option>
-          <option>Giá giảm dần</option>
-        </select>
-      </div>
-    </div>
+          <div class="product-card">
+            <img src="../../shared/images/drug2.jpg" alt="Thuốc 2" onerror="this.style.display='none'" />
+            <h4>Vitamin C 1000mg</h4>
+            <p>Tăng cường miễn dịch, chống oxy hóa</p>
+            <button>Thêm vào giỏ</button>
+          </div>
 
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="images/p1.jpg" alt="Paracetamol" />
-        <h4>Paracetamol 500mg</h4>
-        <p>25.000₫</p>
-        <button>Thêm vào giỏ</button>
-      </div>
-      <div class="product-card">
-        <img src="images/p2.jpg" alt="Vitamin C" />
-        <h4>Vitamin C 1000mg</h4>
-        <p>45.000₫</p>
-        <button>Thêm vào giỏ</button>
-      </div>
-      <div class="product-card">
-        <img src="images/p3.jpg" alt="Oresol" />
-        <h4>Oresol gói</h4>
-        <p>15.000₫</p>
-        <button>Thêm vào giỏ</button>
-      </div>
-      <div class="product-card">
-        <img src="images/p4.jpg" alt="Salonpas" />
-        <h4>Salonpas miếng dán</h4>
-        <p>30.000₫</p>
-        <button>Thêm vào giỏ</button>
-      </div>
-    </div>
-  </section>
+          <div class="product-card">
+            <img src="../../shared/images/drug3.jpg" alt="Thuốc 3" onerror="this.style.display='none'" />
+            <h4>Omega-3 Fish Oil</h4>
+            <p>Hỗ trợ tim mạch và não bộ</p>
+            <button>Thêm vào giỏ</button>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 DrugStore. Tất cả các quyền được bảo lưu.</p>
-  </footer>
-</body>
+  <div data-include="../shared/components/footer.html"></div>
+
+    <script src="../shared/include.js"></script>
+  </body>
 </html>

@@ -1,215 +1,183 @@
-/* Giao diện người dùng - màu xanh lá nhạt */
-
+/* Dashboard styles adapted to drugs.css theme (pharmacy green) */
 body {
-  margin: 0;
   font-family: "Montserrat", sans-serif;
-  background-color: #f8fdf8;
-  color: #333;
+  margin: 0;
+  padding: 0;
+  background: #f6fbf6; /* soft mint background like drugs.css */
+  color: #155724;
 }
 
-.container {
-  width: 90%;
-  margin: auto;
-}
-
-/* Header */
+/* Topbar / Header */
 .topbar {
-  background-color: #d4f8d4;
-  padding: 10px 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(90deg, #a8e6a3, #d3f8d3);
+  border-bottom: 2px solid #a6dba8;
+  padding: 12px 0;
 }
-
 .topbar-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 90%;
+  margin: auto;
 }
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .logo h1 {
-  color: #166534;
   font-size: 22px;
   font-weight: 700;
-}
-
-.logo span {
-  color: #4ba04b;
-}
-
-.search-box {
-  display: flex;
-  align-items: center;
-}
-
-.search-box input {
-  padding: 8px 10px;
-  border: 1px solid #a7e2a0;
-  border-radius: 6px 0 0 6px;
-  outline: none;
-  width: 300px;
-}
-
-.search-box button {
-  padding: 8px 12px;
-  background-color: #4ba04b;
-  color: white;
-  border: none;
-  border-radius: 0 6px 6px 0;
-  cursor: pointer;
-}
-
-.user-actions a {
-  color: #166534;
-  text-decoration: none;
-  margin-left: 15px;
-  font-weight: 600;
-}
-
-/* Navbar */
-.navbar {
-  background-color: #a7e2a0;
-  padding: 10px 0;
-}
-
-.menu {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  list-style: none;
-  padding: 0;
   margin: 0;
+  color: #155724;
 }
+.logo span { color: #1b5e20; }
+.search-box input { padding: 8px; border: 1px solid #b6e3b9; border-radius: 6px; }
+.search-box button { padding: 8px 10px; background: #69c16c; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+.user-actions a { color: #154d21; text-decoration: none; margin-left: 12px; }
 
-.menu li a {
-  color: #166534;
-  text-decoration: none;
-  font-weight: 600;
-}
+/* Navbar (feature bar) */
+.navbar { background: transparent; padding: 8px 0; }
+.menu { list-style: none; display: flex; justify-content: center; margin: 0; padding: 0; gap: 10px; overflow:auto; white-space:nowrap; }
+.menu li { flex: 0 0 auto; }
+.menu li a { color: #155724; text-decoration: none; padding: 10px 16px; display: block; border-radius: 8px; font-weight:600 }
+.menu li a:hover { background: rgba(105,193,108,0.12); }
+.menu li a.active { background: linear-gradient(90deg, rgba(105,193,108,0.16), rgba(105,193,108,0.06)); }
 
-.menu li a:hover {
-  color: #0f441f;
-  text-decoration: underline;
-}
+/* Hero / welcome */
+.hero { display:flex; align-items:center; justify-content:space-between; padding:40px 8%; background: linear-gradient(90deg,#e8fbeb,#f6fbf6); border-bottom:1px solid #e2f3e2 }
+.hero-text { max-width:55%; }
+.hero-text h2 { font-size:32px; margin:0; color:#155724 }
+.hero-text span { color:#1b5e20 }
+.hero-text p { margin-top:10px; color:#2d7a2e }
+.btn-primary { margin-top:16px; padding:10px 18px; background:#6fdc6f; color:#fff; border:none; border-radius:6px; cursor:pointer; font-weight:700 }
+.btn-primary:hover { background:#4ac74a }
+.hero-image img { max-width:360px; border-radius:10px }
 
-/* Categories */
-.categories {
-  margin-top: 30px;
-}
-
-.categories h2 {
-  color: #166534;
-  margin-bottom: 20px;
-}
-
-.category-list {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.cat-item {
-  flex: 1 1 200px;
-  background: white;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.cat-item img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-}
-
-/* Products */
-.products {
-  margin-top: 40px;
-}
-
-.filter-bar {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.filter input {
-  padding: 6px;
-  border: 1px solid #a7e2a0;
-  border-radius: 4px;
-  width: 80px;
-}
-
-.filter button {
-  background-color: #4ba04b;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.sort select {
-  padding: 6px;
-  border: 1px solid #a7e2a0;
-  border-radius: 6px;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
-}
-
-.product-card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  padding: 10px;
-}
-
-.product-card img {
-  width: 100%;
-  height: 120px;
-  object-fit: contain;
-}
-
-.product-card h4 {
-  font-size: 15px;
-  color: #166534;
-}
-
-.product-card p {
-  font-weight: bold;
-  color: #4ba04b;
-}
-
-.product-card button {
-  background-color: #a7e2a0;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 10px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.product-card button:hover {
-  background-color: #4ba04b;
-  color: white;
-}
+/* Featured / Products */
+.featured { padding:40px 8% }
+.product-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap:24px }
+.product-card { background:#fff; border:1px solid #c5e8c8; border-radius:12px; padding:14px; text-align:center; transition:all .3s ease; box-shadow:0 3px 6px rgba(0,0,0,0.05) }
+.product-card:hover { transform:translateY(-6px); box-shadow:0 5px 15px rgba(91,168,94,0.18) }
+.product-card img { width:100%; height:160px; object-fit:cover; border-radius:10px }
+.product-card h4 { margin:12px 0 6px; color:#136c13 }
+.product-card p { color:#4a754a; margin:6px 0 12px }
+.product-card button { background:#6fdc6f; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; font-weight:600 }
+.product-card button:hover { background:#4ac74a }
 
 /* Footer */
-.footer {
-  margin-top: 40px;
-  text-align: center;
-  background-color: #d4f8d4;
-  padding: 15px;
-  color: #166534;
-  font-weight: 600;
+.footer { background:#154d21; color:#fff; text-align:center; padding:20px 0; margin-top:40px }
+
+/* Responsive tweaks */
+@media (max-width:900px) {
+  .hero { flex-direction:column; gap:18px }
+  .hero-text { max-width:100%; text-align:center }
+  .hero-image img { max-width:280px }
 }
+
+/* ======================================================
+   Drugs page styles (merged from drugs.css)
+   Kept under a separate section for clarity and maintainability.
+   Rules here are specific to the drugs listing and product cards
+   (selectors use .drugs-header, .drug-list, .drug-card, etc.)
+   ====================================================== */
+
+/* Style riêng cho trang danh sách thuốc */
+/* body background already set above for dashboard; avoid overriding */
+
+/* Header phần tiêu đề trang (drugs) */
+.drugs-header {
+  text-align: center;
+  padding: 50px 10%;
+  background: linear-gradient(90deg, #a8e6a3, #d3f8d3);
+  border-bottom: 2px solid #a6dba8;
+}
+.drugs-header h2 {
+  font-size: 32px;
+  color: #155724;
+  font-weight: 700;
+}
+.drugs-header p {
+  color: #2d7a2e;
+  margin-top: 10px;
+  font-weight: 500;
+}
+.filter-bar {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.filter-bar input,
+.filter-bar select {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid #b6e3b9;
+  outline: none;
+  font-family: "Montserrat";
+  background: #ffffff;
+}
+.filter-bar input:focus,
+.filter-bar select:focus {
+  border-color: #69c16c;
+  box-shadow: 0 0 5px rgba(105, 193, 108, 0.3);
+}
+
+/* Danh sách thuốc */
+.drug-list {
+  padding: 50px 10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+.drug-card {
+  background: #fff;
+  border: 1px solid #c5e8c8;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+.drug-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 5px 15px rgba(91, 168, 94, 0.25);
+}
+.drug-card img {
+  width: 100%;
+  border-radius: 10px;
+  height: 160px;
+  object-fit: cover;
+}
+.drug-card h3 {
+  margin-top: 10px;
+  color: #136c13;
+  font-size: 18px;
+}
+.drug-card p {
+  color: #4a754a;
+  font-size: 14px;
+  margin: 8px 0 12px;
+}
+.price {
+  color: #1b5e20;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.drug-card button {
+  background: #6fdc6f;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.drug-card button:hover {
+  background: #4ac74a;
+}
+
+/* small responsive tweak for drug-list */
+@media (max-width:700px) {
+  .drug-list { padding: 30px 6%; gap:18px }
+  .drugs-header { padding: 30px 6% }
+}
+
+
